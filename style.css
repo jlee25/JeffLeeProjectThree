@@ -1,0 +1,167 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+@font-face {
+    font-family: chlorinp;
+    src: url('assets/chlorinap/CHLORINP.TTF');
+}
+
+body {
+    position: relative;
+}
+
+header {
+    height: 100vh;
+    z-index: 10;
+    background: url(assets/cloudsmin.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    font-family: chlorinp;
+    font-size: 150px;
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    padding-top: 100px;
+}
+
+header button {
+    text-align: center;
+    margin: 40px 20px;;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: red;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0); 
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    max-width: 250px;
+}
+
+header button:hover {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.red {
+    color: blue;
+}
+
+.blue {
+    color: red;
+}
+
+section {
+    background: url(assets/sunset.jpg) center no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    top: 0;
+}
+
+section h2 {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.board {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.square {
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    box-shadow: 5px 10px #000000;
+}
+
+span {
+    color: red;
+}
+
+.x-icon {
+    background-color: red;
+}
+
+.x-icon::before {
+    content: '\f00d';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 800;
+    font-size: 100px;
+    margin: 0 auto;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.o-icon {
+    background-color: blue;
+}
+
+.o-icon::before {
+    content: '\f111';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 800;
+    position: absolute;
+    font-size: 80px;
+    margin: 0 auto;
+    top: 30px;
+    left: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+section button {
+    margin: 20px auto;
+}
+
+.score {
+    display: flex;
+    max-width: 500px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.score p {
+    padding: 5px 10px;
+}
+
+.score .p1 {
+    background-color: red;
+}
+
+.score .p2 {
+    background-color: blue;
+}
+
+.counter {
+    color: black;
+}

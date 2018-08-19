@@ -27,6 +27,14 @@ h1 {
     padding-top: 100px;
 }
 
+h2, h3, button, p {
+    font-family: 'Coming Soon', cursive;
+}
+
+h2 {
+    font-size: 28px;
+}
+
 header button {
     text-align: center;
     margin: 40px 20px;;
@@ -35,7 +43,7 @@ header button {
     border-radius: 10px;
     background-color: red;
     color: black;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Coming Soon', cursive;
     font-size: 20px;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0); 
@@ -136,6 +144,17 @@ span {
 
 section button {
     margin: 20px auto;
+    border-radius: 10px;
+    border: none;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+section button:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .score {
@@ -160,4 +179,56 @@ section button {
 
 .counter {
     color: black;
+}
+
+@media (max-width: 567px) {
+    h1 {
+        padding: 20px 0 0 0;
+        font-size: 120px;
+    }
+
+    header button {
+        margin-bottom: 0;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .board {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .square {
+        height: 100px;
+        width: 100px;
+    }
+
+    .o-icon::before {
+        top: 25px;
+        left: 25px;
+        font-size: 50px;
+    }
+
+    .x-icon::before {
+        top: 20px;
+        left: 30px;
+        font-size: 60px;
+    }
+
+    .score {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .score p {
+        max-width: 200px;
+    }
+
+    .score button {
+        order: 5;
+    }
+
 }

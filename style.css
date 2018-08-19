@@ -161,6 +161,9 @@ h2, h3, button, p {
 h2 {
   font-size: 28px; }
 
+h3 {
+  font-size: 20px; }
+
 header button {
   text-align: center;
   margin: 40px 20px;
@@ -318,6 +321,41 @@ section button:hover {
 .counter {
   color: black; }
 
+.reset-pop {
+  position: relative;
+  display: none;
+  z-index: 20;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 200px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.reset-question {
+  width: 100%;
+  padding: 40px 0;
+  background-color: blue;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  margin: 0 auto; }
+
+.reset-sentence {
+  font-size: 20px; }
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  padding: 10px;
+  background: 0; }
+
+.yes, .no {
+  margin: 0 10px; }
+
 @media (max-width: 567px) {
   h1 {
     padding: 20px 0 0 0;
@@ -356,4 +394,8 @@ section button:hover {
   .score button {
     -webkit-box-ordinal-group: 6;
     -ms-flex-order: 5;
-    order: 5; } }
+    order: 5; }
+  h2 {
+    font-size: 20px; }
+  h3 {
+    font-size: 14px; } }

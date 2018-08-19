@@ -10,6 +10,7 @@
 
 const tictactoe = {}
 
+let i = 0
 tictactoe.human1 = [];
 tictactoe.human2 = [];
 tictactoe.ai = []
@@ -60,11 +61,12 @@ tictactoe.humanvshuman = $('.human').on('click', function () {
     tictactoe.placingPiece = $('.board').on('click', '.square', function () {
         if (tictactoe.turn == 0) {
             if ($(this).hasClass('x-icon') || ($(this).hasClass('o-icon'))) {
-                alert('Do you know how to play this game? Click another square!!!');
+                $('h3').html("Do you know how to play? Should I make an instruction manual in the bottom left corner? Click another square!!!")
                 $(this).notaddClass("x-icon")
             }
             else {
                 $(this).addClass("x-icon");
+                $('h3').html("");
                 let number = $(this).data("value");
                 tictactoe.human1.push(number);
                 tictactoe.boardstate.push(number);
@@ -75,11 +77,12 @@ tictactoe.humanvshuman = $('.human').on('click', function () {
         }
         else {
             if ($(this).hasClass('x-icon') || ($(this).hasClass('o-icon'))) {
-                alert('Do you know how to play this game? Click another square!!!');
+                $('h3').html("Do you know how to play? Should I make an instruction manual in the bottom left corner? Click another square!")
                 $(this).notaddClass("o-icon")
             }
             else {
                 $(this).addClass("o-icon");
+                $('h3').html("");
                 let number = $(this).data("value");
                 tictactoe.human2.push(number);
                 tictactoe.boardstate.push(number);
@@ -98,12 +101,13 @@ tictactoe.humanvscomputer = $('.computer').on('click', function () {
     tictactoe.placingPiece2 = $('.board').on('click', '.square', function () {
         $('h2').html("You can do it!!!!!")
         if ($(this).hasClass('x-icon') || ($(this).hasClass('o-icon'))) {
-            alert('Do you know how to play this game? Click another square!!!');
+            $('h3').html("Do you know how to play? Should I make an instruction manual in the bottom left corner? Click another square!")
             $(this).notaddClass("x-icon")
         }
         else {
             $(this).addClass("x-icon");
             $(this).addClass("filled");
+            $('h3').html("");
             let number = $(this).data("value");
             tictactoe.human1.push(number);
             tictactoe.boardstate.push(number);
@@ -156,121 +160,220 @@ tictactoe.cputurn = function () { // CPU COMPLETE TURN
 }
 
 
-tictactoe.checkForWin = function () { // CHECKING FOR A WIN. WOULD LOVE TO FIND A LOOP FOR IT BECAUSE I KNOW THERE IS!! 
+tictactoe.checkForWin = function () { // CHECKING FOR A WIN PLAYER ONE. WOULD LOVE TO FIND A LOOP FOR IT BECAUSE I KNOW THERE IS!! 
     if ($(".square1").hasClass("x-icon") && $(".square2").hasClass("x-icon") && $(".square3").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>");
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 0
     }
     else if ($(".square4").hasClass("x-icon") && $(".square5").hasClass("x-icon") && $(".square6").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>");
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 0
+        
     }
     else if ($(".square7").hasClass("x-icon") && $(".square8").hasClass("x-icon") && $(".square9").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>");
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 0
     }
     else if ($(".square1").hasClass("x-icon") && $(".square4").hasClass("x-icon") && $(".square7").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>");
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);;
         turn = 0
     }
     else if ($(".square2").hasClass("x-icon") && $(".square5").hasClass("x-icon") && $(".square8").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>")
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 0
     }
     else if ($(".square3").hasClass("x-icon") && $(".square6").hasClass("x-icon") && $(".square9").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>")
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);;
         turn = 0
     }
     else if ($(".square1").hasClass("x-icon") && $(".square5").hasClass("x-icon") && $(".square9").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>")
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 0
     }
     else if ($(".square3").hasClass("x-icon") && $(".square5").hasClass("x-icon") && $(".square7").hasClass("x-icon")) {
-        alert("Player 1 has won");
+        $("h3").html("<span class='blue'>PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.</span>")
+        tictactoe.fading();
         $('.p1 .counter').html(`${tictactoe.p1score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 0
     }
     else return ("false");
 }
 
+
+
 tictactoe.checkForWin2 = function () { // CHECKING FOR WIN FOR SECOND PLAYER
     if ($(".square1").hasClass("o-icon") && $(".square2").hasClass("o-icon") && $(".square3").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else if ($(".square4").hasClass("o-icon") && $(".square5").hasClass("o-icon") && $(".square6").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else if ($(".square7").hasClass("o-icon") && $(".square8").hasClass("o-icon") && $(".square9").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else if ($(".square1").hasClass("o-icon") && $(".square4").hasClass("o-icon") && $(".square7").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else if ($(".square2").hasClass("o-icon") && $(".square5").hasClass("o-icon") && $(".square8").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else if ($(".square3").hasClass("o-icon") && $(".square6").hasClass("o-icon") && $(".square9").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else if ($(".square1").hasClass("o-icon") && $(".square5").hasClass("o-icon") && $(".square9").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else if ($(".square3").hasClass("o-icon") && $(".square5").hasClass("o-icon") && $(".square7").hasClass("o-icon")) {
-        alert("Player 2 has won");
+        $("h3").html("<span class='red'>PLAYER TWO HAS WON. PLAYER ONE, MAYBE YOU SHOULD RETHINK YOUR LIFE</span>");
+        tictactoe.fading();
         $('.p2 .counter').html(`${tictactoe.p2score++}`)
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         turn = 1
     }
     else return ("false");
@@ -285,25 +388,17 @@ tictactoe.resetboard = function () { // RESET BOARD FUNCTION
 
 tictactoe.checkForDraw = function () { // CHECKING FOR A DRAW
     if (tictactoe.boardstate.length == 9) {
-        alert("Its a draw. WOW! you two are equally skilled!");
+        $('h3').append("It's a draw! You are both equally skilled!");
         tictactoe.boardstate = [];
-        tictactoe.resetboard()
+        tictactoe.delayreset = setTimeout(function () { // RESET BOARD FUNCTION
+            for (i = 1; i <= 9; i++) {
+                $(`.square${i}`).removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+                $('h2').html("Please click on a square to begin")
+            }
+        }, 3000);
         $('h2').html("Please click on a square to begin")
     }
 }
-
-
-tictactoe.resetbutton = $('section button').on('click', function () { // RESET BUTTON ON BOTTOM OF THE SCREEN
-    let cheating = confirm("Are you sure you want to reset the board? Please ask the other player before you cheat.");
-    if (cheating == true) {
-        $('div').removeClass("x-icon").removeClass("o-icon").removeClass("filled");
-        $('h2').html("Please click on a square to begin")
-        tictactoe.boardstate = [];
-    }
-    else {
-        return false;
-    }
-});
 
 tictactoe.turnspeech = function () { // H2 THAT CHANGES DEPENDING ON WHOSE TURN IT IS
     if (tictactoe.boardstate.length % 2 == 0 || tictactoe.turn == 1) {
@@ -314,9 +409,53 @@ tictactoe.turnspeech = function () { // H2 THAT CHANGES DEPENDING ON WHOSE TURN 
     }
 }
 
-tictactoe.transition = $(".human, .computer").click(function () { // FADING OUT WHEN ENTERING GAME.
-    $('header').fadeOut(2000);
+tictactoe.transition = $(".human, .computer").click(function () { // FADING OUT WHEN ENTERING GAME
+    $('header').fadeOut(3000);
 });
+
+tictactoe.fading = function () {
+    $('h3').fadeOut('slow', function () {
+        $('h3').fadeIn('slow', function () {
+            tictactoe.fading();
+        });
+    });
+}
+
+tictactoe.resetting = $('.yes').on("click", function () {
+    $('.reset-pop').hide();
+    $('div').removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+    $('h2').html("Please click on a square to begin")
+    tictactoe.boardstate = [];
+});
+
+tictactoe.resetbutton = $('.reset').on("click", function () { // RESET BUTTON POPUP
+    $('.reset-pop').show();
+    $('.reset-question').show("slow").animate({ top: '200' });
+    tictactoe.resetting();
+    $('.close, .no').on("click", function () {
+        $('.reset-pop').hide();
+    });
+});
+
+tictactoe.resetting = $('.yes').on("click", function () {
+    $('.reset-pop').hide();
+    $('div').removeClass("x-icon").removeClass("o-icon").removeClass("filled");
+    $('h2').html("Please click on a square to begin")
+    tictactoe.boardstate = [];
+});
+
+$('.close, .no').on("click", function () {
+    $('.reset-pop').hide();
+});
+
+// tictactoe.countdown = setInterval(function () { // CountDown
+//     $("h3").html("PLAYER ONE HAS WON. PLAYER TWO YOU SUCK! Please click to play again.")
+//     $("h3").toggleClass("blue");
+//     i += 1;
+//     if (i === 5) {
+//         clearInterval(tictactoe.countdown);
+//     }
+// }, 500)
 
 
 tictactoe.init = function () {

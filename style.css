@@ -213,7 +213,7 @@ section {
   top: 0; }
 
 section h2 {
-  margin: 20px auto;
+  margin: 0 auto;
   text-align: center; }
 
 .board {
@@ -343,7 +343,7 @@ section button:hover {
   margin: 0 auto; }
 
 .reset-sentence {
-  font-size: 20px; }
+  font-size: 28px; }
 
 .close {
   position: absolute;
@@ -395,7 +395,10 @@ section button:hover {
     -webkit-box-ordinal-group: 6;
     -ms-flex-order: 5;
     order: 5; }
-  h2 {
-    font-size: 20px; }
+  h1 {
+    font-size: 100px; }
+  section h2 {
+    font-size: 20px;
+    margin-top: 0; }
   h3 {
     font-size: 14px; } }
